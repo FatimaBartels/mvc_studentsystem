@@ -12,4 +12,11 @@ class PersoonService {
         return $personen; 
     } 
 
+    public function haalPersoonId(int $id): Persoon { 
+        $persoonDAO = new PersoonDAO(); 
+        $persoon = $persoonDAO->getPersoonById($id); 
+        return $persoon; 
+    } 
+
+
 }

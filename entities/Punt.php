@@ -4,13 +4,14 @@
 
 declare(strict_types = 1);
 
-require_once "Persoon.php";
-require_once "Module.php";
+require_once("entities/Persoon.php") ;
+require_once("entities/Module.php") ;
 
 
 
 class Punt
 {
+    private static $idMap = array();
     private ?int $moduleId;
     private ?int $persoonId;
     private ?int $punt;
@@ -28,13 +29,16 @@ class Punt
        
     }
 
-    public static function create(
-    ?int $moduleId, ?int $persoonId, ?int $punt
-        ): Punt
+    public static function create(int $moduleId, int $persoonId, int $punt
+        )
 
     {
-        return new Punt($moduleId, $persoonId, $punt);
+         if (!isset(self::$idMap[$moduleId])) {
+         self::$idMap[$moduleId] =  new Punt($moduleId, $persoonId, $punt);
     }
+
+    return self::$idMap[$moduleId];
+}
 
     
 

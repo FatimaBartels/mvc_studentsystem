@@ -10,7 +10,7 @@ if (isset($_GET['persoonId'])) {
     $mainContent = ob_get_clean();
 } elseif (isset($_GET['moduleId'])) {
     ob_start();
-    include 'punten-per-module.php';
+    include 'presentation/punten-per-module.php';
     $mainContent = ob_get_clean();
 } elseif (isset($_GET['form']) && $_GET['form'] === 'addPunt') {
     ob_start();
