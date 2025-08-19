@@ -16,7 +16,6 @@ class Punt
     private ?int $persoonId;
     private ?int $punt;
 
-    private ?PDO $dbh = null;
     
 
     public function __construct(?int $moduleId, ?int $persoonId, ?int $punt)
@@ -78,7 +77,7 @@ class Punt
     $persoonResult["familienaam"],
     $persoonResult["voornaam"], 
     $persoonResult["geslacht"],
-    $persoonResult["id"]
+    (int)$persoonResult["id"]
     
     );
 

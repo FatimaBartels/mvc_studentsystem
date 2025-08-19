@@ -1,26 +1,3 @@
-<?php 
-
-declare(strict_types=1); 
-
-$mainContent = "<h2>Selecteer een student, module of actie</h2>";
-
-if (isset($_GET['persoonId'])) {
-    ob_start();
-    include 'punten-per-persoon.php';
-    $mainContent = ob_get_clean();
-} elseif (isset($_GET['moduleId'])) {
-    ob_start();
-    include 'presentation/punten-per-module.php';
-    $mainContent = ob_get_clean();
-} elseif (isset($_GET['form']) && $_GET['form'] === 'addPunt') {
-    ob_start();
-    include 'punt-form.php';
-    $mainContent = ob_get_clean();
-}
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -72,5 +49,4 @@ if (isset($_GET['persoonId'])) {
 </div>
 </body>
 </html>
-
 

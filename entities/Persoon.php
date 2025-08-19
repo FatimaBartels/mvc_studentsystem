@@ -10,7 +10,7 @@ class Persoon
     private string $geslacht;
   
 
-    public function __construct(string $familienaam, string $voornaam, string $geslacht, ?int $id)
+    public function __construct(string $familienaam, string $voornaam, string $geslacht, ?int $id = null)
     {
         $this->id    = $id;
         $this->familienaam = $familienaam;
