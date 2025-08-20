@@ -28,6 +28,7 @@ class ModuleDAO
         return $resultModule;
     }
 
+
     public function getModuleById(int $id): ?Module {
 
         $sql = "SELECT * FROM modules WHERE id = :id";
@@ -38,17 +39,17 @@ class ModuleDAO
         $stmt->execute([':id' => $id]);
     
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($row) {
-            return Module::create((int)$row['id'], $row['naam']);
-        }
-
         $dbh = null;
     
-        return null;
-    }
-    
+        if (!$row) {
+            return null;
+        }
 
-   
+        return new Module((int)$row['id'], $row['naam']);
+        
+        
+    }
+
+     
 
 }

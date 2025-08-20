@@ -8,7 +8,7 @@ class Module
     private string $naam;
   
 
-    public function __construct(?int $id, string $naam)
+    public function __construct(?int $id, string $naam )
     {
         $this->id    = $id;
         $this->naam  = $naam;
@@ -20,10 +20,10 @@ class Module
         ): Module
 
     {
-        return new Module($id, $naam, );
+        return new Module($id, $naam );
     }
 
-    public function getId(): ?int
+    public function getId(): int
     {
         return $this->id;
     }

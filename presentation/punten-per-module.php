@@ -6,9 +6,10 @@ declare(strict_types=1);
 
 <link rel="stylesheet" href="presentation/css/style.css">
 <div>
-    <h2>Module: <?= $module->getNaam(); ?>
-    </h2>
+ 
+    <h2>Module: <?= $module->getNaam() ?></h2>
     <div class="container">
+       <?php if (!empty($punten)): ?>
         <table>
             <thead>
                 <tr>
@@ -17,13 +18,18 @@ declare(strict_types=1);
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($punten as $punt): ?> 
-                    <tr>
-                        <td><?= $punt->getPersoon()->getFamilienaam() ?> <?= $punt->getPersoon()->getVoornaam() ?> </td>
-                        <td><?= $punt->getPunt() ?></td>
-                    </tr>
-                <?php endforeach; ?>
+              <?php foreach ($punten as $punt): ?> 
+               
+                <tr>
+                    <td><?= $punt->getPersoon()->getFamilienaam() ?> 
+                    <?= $punt->getPersoon()->getVoornaam() ?></td>
+                    <td><?= $punt->getPunt() ?></td>
+                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
+    <?php else: ?>
+        <p>Geen resultaten voor deze module.</p>
+    <?php endif; ?>
     </div>
 </div>

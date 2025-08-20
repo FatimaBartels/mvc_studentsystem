@@ -14,8 +14,8 @@ class ModuleService {
 
     public function getModuleId(int $id) : ?Module {
         $moduleDAO =  new ModuleDAO();
-        $module = $moduleDAO->getModuleById($id);
-        return $module;
+        return $moduleDAO->getModuleById($id);
+        
     }
 
 }

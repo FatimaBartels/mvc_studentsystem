@@ -2,24 +2,26 @@
 
 declare(strict_types=1);
 
-require_once 'business/ModuleService.php';
-require_once 'business/PuntService.php';
+require_once("business/ModuleService.php");
+require_once("business/PuntService.php");
+
+$moduleSvc = new ModuleService();
+$puntSvc = new PuntService();
 
 if (!isset($_GET['moduleId']) || !is_numeric($_GET['moduleId'])) {
     die("Ongeldig module ID.");
 }
 
-$moduleSvc = new ModuleService();
-$module = $moduleSvc->getModuleId((int)$_GET['moduleId']);
+$moduleId = (int)$_GET['moduleId'];
 
+// Get module details
+$module = $moduleSvc->getModuleId($moduleId);
 if (!$module) {
     die("Module niet gevonden.");
 }
 
-$puntSvc = new PuntService();
-$punten = $puntSvc->getPuntenPerModule((int)$_GET['moduleId']);
+// Get punten for this module
+$punten = $puntSvc->getPuntenPerModule($moduleId);
 
 
-ob_start();
-include 'presentation/punten-per-module.php';
-$mainContent = ob_get_clean();
+include("presentation/punten-per-module.php");

@@ -1,4 +1,5 @@
 <?php 
+
 //business/PersoonService.php 
 declare(strict_types = 1);
 
@@ -12,7 +13,7 @@ class PersoonService {
         return $personen; 
     } 
 
-    public function haalPersoonId(int $id): Persoon { 
+    public function getPersoonId(int $id): Persoon { 
         $persoonDAO = new PersoonDAO(); 
         $persoon = $persoonDAO->getPersoonById($id); 
         return $persoon; 

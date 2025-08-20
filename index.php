@@ -1,35 +1,37 @@
-<?php 
+<?php
+declare(strict_types=1);
 
-declare(strict_types=1); 
+require_once("business/ModuleService.php");
+require_once("business/PersoonService.php");
 
-require_once("business/ModuleService.php"); 
-require_once("business/PersoonService.php"); 
+$moduleSvc = new ModuleService();
+$persoonSvc = new PersoonService();
 
-$moduleSvc = new ModuleService(); 
-$modules = $moduleSvc->getModuleOverzicht(); 
-
-$persoonSvc = new PersoonService(); 
-$studenten = $persoonSvc->getPersoonOverzicht(); 
+// Haal ALLE modules en studenten op (voor menu/selecties)
+$modules = $moduleSvc->getModuleOverzicht();
+$studenten = $persoonSvc->getPersoonOverzicht();
 
 $mainContent = "<h2>Selecteer een student, module of actie</h2>";
 
+// Routeren op basis van GET parameters
 if (isset($_GET['persoonId'])) {
     ob_start();
-    include 'punten-per-persoon.php';
+    include("toonperpersoon.php");
     $mainContent = ob_get_clean();
 
 } elseif (isset($_GET['moduleId'])) {
     ob_start();
-    include 'toonpermodule.php';
+    include("toonpermodule.php");
     $mainContent = ob_get_clean();
-    
+
 } elseif (isset($_GET['form']) && $_GET['form'] === 'addPunt') {
     ob_start();
-    include 'punt-form.php';
+    include("add-punt.php");
     $mainContent = ob_get_clean();
 }
 
-include 'presentation/layout.php';
+// Toon layout met dynamische content
+include("presentation/layout.php");
 
 
 

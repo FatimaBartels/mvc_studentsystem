@@ -10,7 +10,7 @@ class Persoon
     private string $geslacht;
   
 
-    public function __construct(string $familienaam, string $voornaam, string $geslacht, ?int $id = null)
+    public function __construct(int $id, string $familienaam, string $voornaam, string $geslacht)
     {
         $this->id    = $id;
         $this->familienaam = $familienaam;
@@ -19,12 +19,10 @@ class Persoon
        
     }
 
-   public static function create(
-    
-    string $familienaam, string $voornaam, string $geslacht, ?int $id = null
+    public static function create(int $id, string $familienaam, string $voornaam, string $geslacht
         ): Persoon
     {
-        return new Persoon($familienaam, $voornaam, $geslacht, $id);
+        return new Persoon($id, $familienaam, $voornaam, $geslacht );
     }
 
     public function getId(): ?int

@@ -1,35 +1,27 @@
 <?php
 declare(strict_types=1);
 
-require_once("business/PuntService.php"); 
-require_once("business/PersoonService.php"); 
-/*
+require_once("business/PuntService.php");
+require_once("business/PersoonService.php");
 
-
-$puntenHandler = new PuntenDataHandler();
-$persoonHandler = new PersonenDataHandler();
+$persoonSvc = new PersoonService();
+$puntSvc    = new PuntService();
 
 if (!isset($_GET['persoonId']) || !is_numeric($_GET['persoonId'])) {
-    die("Ongeldig persoon ID.");
+    die("Ongeldig student ID.");
 }
 
 $persoonId = (int)$_GET['persoonId'];
-$persoon = $persoonHandler->haalPersoonId($persoonId);
+
+$persoon = $persoonSvc->getPersoonId($persoonId);
 
 if (!$persoon) {
     die("Student niet gevonden.");
 }
 
-$punten = $puntenHandler->getPuntenByPersoonId($persoonId);
+// Gebruik de nieuwe functie in PuntService
+$punten = $puntSvc->getPuntenPerPersoon($persoonId);
 
-
-*/
-
-$puntenSvc = new PuntService(); 
-$punten = $puntenSvc->haalPuntenPersoonId((int)$_GET['persoonId']); 
-
-$persoonSvc = new PersoonService(); 
-$persoon = $persoonSvc->haalPersoonId((int)$_GET['persoonId']); 
-
-//include("presentation/punten-per-persoon.php"); 
-?>
+//ob_start();
+include("presentation/punten-per-persoon.php");
+//$mainContent = ob_get_clean();
