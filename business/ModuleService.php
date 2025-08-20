@@ -8,8 +8,8 @@ class ModuleService {
  
     public function getModuleOverzicht(): array { 
         $moduleDAO = new ModuleDAO(); 
-        $modules = $moduleDAO->getModulesList(); 
-        return $modules; 
+        return $moduleDAO->getModulesList(); 
+        
     } 
 
     public function getModuleId(int $id) : ?Module {

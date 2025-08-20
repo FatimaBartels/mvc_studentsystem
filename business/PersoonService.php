@@ -9,14 +9,14 @@ class PersoonService {
  
     public function getPersoonOverzicht(): array { 
         $persoonDAO = new PersoonDAO(); 
-        $personen = $persoonDAO->getPersonenList(); 
-        return $personen; 
+        return $persoonDAO->getPersonenList(); 
+       
     } 
 
     public function getPersoonId(int $id): Persoon { 
         $persoonDAO = new PersoonDAO(); 
-        $persoon = $persoonDAO->getPersoonById($id); 
-        return $persoon; 
+        return $persoonDAO->getPersoonById($id); 
+      
     } 
 
 
