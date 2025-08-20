@@ -7,13 +7,13 @@ require_once("business/PersoonService.php");
 $moduleSvc = new ModuleService();
 $persoonSvc = new PersoonService();
 
-// Haal ALLE modules en studenten op (voor menu/selecties)
+
 $modules = $moduleSvc->getModuleOverzicht();
 $studenten = $persoonSvc->getPersoonOverzicht();
 
 $mainContent = "<h2>Selecteer een student, module of actie</h2>";
 
-// Routeren op basis van GET parameters
+
 if (isset($_GET['persoonId'])) {
     ob_start();
     include("toonperpersoon.php");
@@ -30,7 +30,7 @@ if (isset($_GET['persoonId'])) {
     $mainContent = ob_get_clean();
 }
 
-// Toon layout met dynamische content
+
 include("presentation/layout.php");
 
 

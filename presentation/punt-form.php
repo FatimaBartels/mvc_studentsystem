@@ -13,8 +13,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Punt toevoegen</h2>   
-    
+    <h2>Punt toevoegen</h2>  
+
+     <!--  Meldingen -->
         <?php if (isset($_SESSION['success'])): ?>
             <p class="success-message"><?= $_SESSION['success']; unset($_SESSION['success']); ?></p>
         <?php endif; ?>
@@ -23,6 +24,7 @@
             <p class="error-message"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
         <?php endif; ?>
 
+           <!--  Form  -->
     <form method="post" action="add-punt.php?action=process" class="punt-form">
     <div class="form-group">
             <label for="student">Student:</label>

@@ -19,7 +19,7 @@ if (!$persoon) {
     die("Student niet gevonden.");
 }
 
-// Gebruik de nieuwe functie in PuntService
+
 $punten = $puntSvc->getPuntenPerPersoon($persoonId);
 
 //ob_start();

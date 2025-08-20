@@ -29,7 +29,7 @@ if (isset($_GET["action"]) && $_GET["action"] === "process") {
     exit;
 }
 
-// form tonen
+
 require_once("business/ModuleService.php");
 require_once("business/PersoonService.php");
 

@@ -14,13 +14,13 @@ if (!isset($_GET['moduleId']) || !is_numeric($_GET['moduleId'])) {
 
 $moduleId = (int)$_GET['moduleId'];
 
-// Get module details
+
 $module = $moduleSvc->getModuleId($moduleId);
 if (!$module) {
     die("Module niet gevonden.");
 }
 
-// Get punten for this module
+
 $punten = $puntSvc->getPuntenPerModule($moduleId);
 
 
